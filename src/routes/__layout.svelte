@@ -1,5 +1,10 @@
 <script>
 	import '../app.css';
+
+	import Navigation from '$lib/components/Navigation.svelte';
 </script>
 
-<slot />
+<Navigation />
+<div class='container mx-auto mt-8 antialiased'>
+  <slot />
+</div>
