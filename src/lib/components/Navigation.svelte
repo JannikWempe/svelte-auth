@@ -1,4 +1,6 @@
 <script>
+  import { session } from '$app/stores';
+
   const navigation = [
     {
       href: '/',
@@ -6,7 +8,7 @@
     },
     {
       href: '/protected',
-      name: '🔒 Protected'
+      name: `${$session.user ? "🔓" : "🔒"} Protected`
     }
   ];
 </script>
@@ -17,7 +19,7 @@
       <div class='flex items-center'>
         <div class='hidden ml-10 space-x-8 lg:block'>
           {#each navigation as link}
-            <a href={link.href} class='text-base font-medium text-white hover:text-indigo-50'>
+            <a href={link.href} class='text-lg font-medium text-white hover:text-indigo-50'>
               {link.name}
             </a>
           {/each}
