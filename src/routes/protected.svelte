@@ -3,7 +3,7 @@
     if (!session?.user) {
       return {
         status: 302,
-        redirect: "/"
+        redirect: "/sign-in"
       }
     }
     return {
@@ -16,6 +16,9 @@
 
 <script>
   export let user;
+
+  // import { session } from '$app/stores';
+  // $session.user;
 </script>
 
-<h1 class='text-2xl font-semibold text-center'>Hi, {user.name}!</h1>
+<h1 class='text-2xl font-semibold text-center'>Hi! You are registered with email {user.email}.</h1>

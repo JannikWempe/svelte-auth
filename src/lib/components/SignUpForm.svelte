@@ -4,7 +4,7 @@
 
   import { createEventDispatcher } from 'svelte';
 
-  let username = '';
+  let email = '';
   let password = '';
   let confirmPassword = '';
   let error;
@@ -21,14 +21,14 @@
     }
 
     dispatch('submit', {
-      username,
+      email,
       password
     })
   }
 </script>
 
 <form on:submit|preventDefault={submit} class='space-y-5 {$$props.class}'>
-  <Input label='Email' id='email' name='email' type='email' bind:value={username} />
+  <Input label='Email' id='email' name='email' type='email' bind:value={email} />
   <Input label='Password' id='password' name='password' type='password' bind:value={password} />
   <Input label='Confirm Password' id='confirm-password' name='confirm-password' type='password' bind:value={confirmPassword} bind:inputRef={confirmPasswordInputRef} />
   {#if error}
