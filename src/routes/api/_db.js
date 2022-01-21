@@ -18,7 +18,7 @@ export const getUserByEmail = async (email) => {
 
 export const registerUser = (user) => {
 	const existingUser = users.find((u) => u.email === user.email);
-	if (!!existingUser) return Promise.reject(new Error('User already exists'));
+	if (existingUser) return Promise.reject(new Error('User already exists'));
 	users.push(user);
 	return Promise.resolve(user);
 };
