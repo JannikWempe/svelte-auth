@@ -5,7 +5,7 @@ import { serialize } from 'cookie';
 export async function post({ body: { email, password } }) {
 	const user = await getUserByEmail(email);
 
-  // ⚠️ CAUTION: Do not store a plain password like this. Use proper hashing and salting.
+	// ⚠️ CAUTION: Do not store a plain password like this. Use proper hashing and salting.
 	if (!user || user.password !== password) {
 		return {
 			status: 401,

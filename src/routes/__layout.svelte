@@ -5,6 +5,6 @@
 </script>
 
 <Navigation />
-<div class='container mx-auto mt-8 antialiased'>
-  <slot />
+<div class="container mx-auto mt-8 antialiased">
+	<slot />
 </div>

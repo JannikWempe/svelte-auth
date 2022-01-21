@@ -12,6 +12,7 @@ npm run dev
 ```
 
 You can log in with this dummy user:
+
 ```
 email === mail@example.com
 password === thisisnotsecret
