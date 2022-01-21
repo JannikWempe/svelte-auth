@@ -1,5 +1,7 @@
 <script>
 	import SignInForm from '$lib/components/SignInForm.svelte';
+	import { goto } from '$app/navigation';
+	import { session } from '$app/stores';
 
 	let error;
 
@@ -12,12 +14,14 @@
 			},
 		});
 
-		if (!response.ok) {
-			error = (await response.json()).message;
-			return;
+		const body = await response.json();
+		if (response.ok) {
+			// session from getSession hook will otherwise not be set before navigation
+			// that would trigger redirect from /protected back to /sign-in
+			$session = body;
+			await goto('/protected');
 		}
-
-		window.location = '/protected';
+		error = body.message;
 	}
 </script>
 

@@ -28,7 +28,9 @@ export async function post({ body: { email, password } }) {
 			}),
 		},
 		body: {
-			message: 'Successfully signed in',
+			user: {
+				email,
+			},
 		},
 	};
 }

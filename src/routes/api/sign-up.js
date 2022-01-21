@@ -33,7 +33,9 @@ export async function post({ body: { email, password } }) {
 			}),
 		},
 		body: {
-			message: 'Successfully signed up',
+			user: {
+				email,
+			},
 		},
 	};
 }

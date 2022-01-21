@@ -1,5 +1,6 @@
 <script>
 	import { session } from '$app/stores';
+	import { goto } from '$app/navigation';
 
 	const navigation = [
 		{
@@ -14,8 +15,8 @@
 
 	async function handleSignOut() {
 		await fetch('/api/sign-out');
-
-		window.location = '/sign-in';
+		$session = {};
+		await goto('/sign-in');
 	}
 </script>
 
