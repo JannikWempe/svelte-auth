@@ -2,7 +2,8 @@ import { createSession, getUserByEmail } from './_db';
 import { serialize } from 'cookie';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function post({ body: { email, password } }) {
+export async function post({ request }) {
+	const { email, password } = await request.json();
 	const user = await getUserByEmail(email);
 
 	// ⚠️ CAUTION: Do not store a plain password like this. Use proper hashing and salting.
