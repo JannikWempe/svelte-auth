@@ -2,7 +2,7 @@
 	import { session } from '$app/stores';
 	import { goto } from '$app/navigation';
 
-	const navigation = [
+	$: navigation = [
 		{
 			href: '/',
 			name: 'Home',
